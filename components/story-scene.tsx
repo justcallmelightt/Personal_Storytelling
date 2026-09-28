@@ -15,7 +15,7 @@ type StorySceneProps = {
   index: number;
   page: StoryPage;
   editing: boolean;
-  onEdit: (page: StoryPage) => void;
+  onEdit?: (page: StoryPage) => void;
 };
 
 export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
@@ -61,7 +61,7 @@ export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
         {String(index + 1).padStart(2, "0")}
       </div>
 
-      <motion.button
+      {onEdit && <motion.button
         type="button"
         onClick={() => onEdit(page)}
         className={`absolute bottom-[5svh] right-[5vw] rounded-full border border-white/40 bg-white/20 px-4 py-2 text-xs backdrop-blur-xl ${editing ? "opacity-100" : "opacity-100 lg:opacity-0 lg:group-hover:opacity-100"}`}
@@ -69,7 +69,7 @@ export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
         transition={{ type: "spring", stiffness: 480, damping: 34 }}
       >
         이 페이지 꾸미기
-      </motion.button>
+      </motion.button>}
     </motion.article>
   );
 }
