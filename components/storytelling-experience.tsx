@@ -39,7 +39,6 @@ export function StorytellingExperience() {
   }, [hydrated, story]);
 
   const pages = useMemo(() => story.pages.filter((page) => filter === "all" || page.category === filter), [filter, story.pages]);
-  const [headlineLead, ...headlineRest] = story.headline.split(",");
   const savePage = (nextPage: StoryPage) => setStory((current) => ({ ...current, pages: current.pages.map((page) => page.id === nextPage.id ? nextPage : page) }));
 
   return (
@@ -47,27 +46,31 @@ export function StorytellingExperience() {
       <div className="ambient ambient-one" aria-hidden="true" />
       <div className="ambient ambient-two" aria-hidden="true" />
       <header className="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b border-white/20 bg-[#f7f4ef]/55 px-[5vw] py-5 font-mono text-[0.68rem] tracking-[0.08em] backdrop-blur-xl">
-        <a href="#top" className="active:opacity-50">{story.owner} / STORY 01</a>
-        <div className="text-[#77727d]"><span className="mr-2 inline-block size-1.5 rounded-full bg-[#8dce72] shadow-[0_0_0_.25rem_rgba(141,206,114,.16)]" />계속 쓰이는 중</div>
+        <a href="#top" className="active:opacity-50">PERSONAL STORYTELLING</a>
+        <div className="text-[#77727d]"><span className="mr-2 inline-block size-1.5 rounded-full bg-[#8dce72] shadow-[0_0_0_.25rem_rgba(141,206,114,.16)]" />샘플 이야기</div>
       </header>
 
-      <section className="mx-auto flex min-h-svh w-[min(1080px,90vw)] snap-start snap-always flex-col items-start pt-[23svh]">
-        <motion.p className="font-mono text-[0.67rem] tracking-[0.12em] text-[#77727d]" initial={false} animate={{ opacity: 1 }}>A PERSONAL TIMELINE · 2007 — NOW</motion.p>
-        <motion.h1 className="mt-12 max-w-[10ch] text-[clamp(3.8rem,9.5vw,8.9rem)] font-black leading-[.98] tracking-[-0.075em]" initial={false} animate={{ opacity: 1 }}>{headlineLead},<br /><em className="not-italic text-[#816bc0]">{headlineRest.join(",").trim()}</em></motion.h1>
-        <p className="mt-7 max-w-md text-[clamp(1rem,1.5vw,1.2rem)] leading-8 tracking-[-0.035em] text-[#605b64]">{story.introduction}</p>
-        <a href="#story" className="mt-[12svh] inline-flex items-center gap-3 font-mono text-xs active:scale-95"><span className="h-px w-14 bg-current" />천천히 읽기</a>
+      <section className="mx-auto flex min-h-svh w-[min(1080px,90vw)] snap-start snap-always flex-col justify-center py-24">
+        <motion.p className="font-mono text-[0.67rem] tracking-[0.12em] text-[#77727d]" initial={false} animate={{ opacity: 1 }}>YOUR LIFE, FRAME BY FRAME</motion.p>
+        <motion.h1 className="mt-8 text-[clamp(3.3rem,8vw,7.7rem)] font-black leading-[1.02] tracking-[-0.075em]" initial={false} animate={{ opacity: 1 }}>내 이야기를,<br /><em className="not-italic text-[#816bc0]">한 장면씩.</em></motion.h1>
+        <p className="mt-8 max-w-[35rem] text-[clamp(1rem,1.5vw,1.2rem)] leading-8 tracking-[-0.035em] text-[#605b64]">살아온 순간을 한 화면씩 펼쳐 보세요. 연대기마다 글과 분위기를 꾸미고, 스크롤을 따라 나만의 이야기를 읽는 웹입니다.</p>
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <a href="#scene-start" className="inline-flex min-h-12 items-center rounded-full bg-[#17151d] px-6 text-sm font-bold text-white transition-transform active:scale-[.96]">샘플 이야기 보기 <span className="ml-5" aria-hidden="true">↘</span></a>
+          <a href="#story" className="inline-flex min-h-12 items-center rounded-full border border-[#17151d]/15 px-6 text-sm font-medium transition-transform active:scale-[.96]">어떻게 꾸미나요?</a>
+        </div>
+        <p className="mt-8 font-mono text-[0.65rem] tracking-[0.05em] text-[#77727d]">01 / 한 장면씩 읽기&nbsp;&nbsp; 02 / 글과 분위기 바꾸기&nbsp;&nbsp; 03 / 이 브라우저에 저장</p>
       </section>
 
       <section id="story" className="flex min-h-svh snap-start snap-always flex-col justify-center px-[5vw] py-[13svh]">
         <div className="mx-auto grid w-full max-w-[1080px] items-start gap-8 lg:grid-cols-[1fr_2fr_1fr]">
-          <span className="font-mono text-[0.67rem] tracking-[0.12em] text-[#77727d]">01 / {String(story.pages.length).padStart(2, "0")}</span>
-          <h2 className="text-[clamp(2.8rem,6vw,6.5rem)] font-black leading-[1.02] tracking-[-0.075em]">시간은 직선이<br /><span className="text-[#816bc0]">아니었습니다.</span></h2>
-          <p className="text-sm leading-7 text-[#77727d]">어떤 날은 앞으로 갔고, 어떤 날은 같은 자리에서 오래 머물렀습니다. 그 모든 장면이 지금의 나를 만들었습니다.</p>
+          <span className="font-mono text-[0.67rem] tracking-[0.12em] text-[#77727d]">EXAMPLE / {story.owner}</span>
+          <h2 className="text-[clamp(2.8rem,6vw,6.5rem)] font-black leading-[1.02] tracking-[-0.075em]">{story.headline}</h2>
+          <p className="text-sm leading-7 text-[#77727d]">{story.introduction}<br /><br />다음 화면부터 이어지는 {story.pages.length}개의 프레임은 직접 바꿔볼 수 있는 샘플입니다.</p>
         </div>
 
         <div className="mx-auto mt-20 flex w-full max-w-[1080px] flex-col gap-5 border-b border-black/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
-          <div><span className="font-mono text-[0.64rem] tracking-[0.14em] text-[#77727d]">MY STORY / EDIT MODE</span><strong className="mt-2 block text-sm tracking-[-0.03em]">각 장면은 하나의 페이지입니다.</strong></div>
-          <motion.button type="button" onClick={() => setEditing((value) => !value)} className="self-start rounded-full border border-black/15 px-4 py-2 text-xs sm:self-auto" whileTap={{ scale: 0.94 }}>{editing ? "꾸미기 끝내기" : "페이지 꾸미기 ↗"}</motion.button>
+          <div><span className="font-mono text-[0.64rem] tracking-[0.14em] text-[#77727d]">HOW TO / 첫 프레임부터</span><strong className="mt-2 block text-sm tracking-[-0.03em]">각 프레임의 ‘이 페이지 꾸미기’를 눌러 글과 분위기를 바꿔보세요.</strong></div>
+          <motion.a href="#scene-start" onClick={() => setEditing(true)} className="self-start rounded-full border border-black/15 px-4 py-2 text-xs sm:self-auto" whileTap={{ scale: 0.94 }}>첫 프레임 꾸미기 ↗</motion.a>
         </div>
 
         <div className="mx-auto mt-8 flex w-full max-w-[1080px] flex-wrap gap-2" role="group" aria-label="이야기 필터">

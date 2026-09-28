@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "나는, 아직 쓰이는 중입니다.",
-  description: "나의 시간을 페이지마다 직접 꾸미는 개인 스토리텔링 공간",
+  title: "Personal Storytelling — 내 이야기를, 한 장면씩",
+  description: "살아온 순간을 한 화면씩 펼치고, 연대기마다 글과 분위기를 꾸미는 개인 스토리텔링 웹",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
