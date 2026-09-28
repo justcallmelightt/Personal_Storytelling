@@ -9,6 +9,8 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); font-family: var(--font-sans), sans-serif; }
+main { overscroll-behavior-y: contain; scrollbar-width: none; }
+main::-webkit-scrollbar { display: none; }
 button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
 button, input, textarea, select { font: inherit; }
 a { color: inherit; text-decoration: none; }

@@ -24,18 +24,30 @@ export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
   return (
     <motion.article
       id={`scene-${page.id}`}
-      className={`group relative grid min-h-[82svh] snap-start overflow-hidden rounded-[1.6rem] p-6 sm:p-10 lg:grid-cols-[1fr_2fr_1fr] lg:gap-8 ${themeClass[page.theme]}`}
-      initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 28, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={reduceMotion ? { duration: 0.15 } : { type: "spring", stiffness: 130, damping: 25, mass: 0.9 }}
+      className={`group relative grid min-h-svh w-full snap-start snap-always overflow-hidden px-[5vw] pb-[7svh] pt-[16svh] lg:grid-cols-[1fr_2fr_1fr] lg:gap-8 ${themeClass[page.theme]}`}
+      initial={false}
+      whileInView={{ opacity: 1 }}
+      viewport={{ amount: 0.52 }}
+      transition={{ duration: reduceMotion ? 0.15 : 0.28 }}
     >
-      <div className="font-mono text-xs tracking-[0.08em]">
+      <motion.div
+        className="font-mono text-xs tracking-[0.08em]"
+        initial={false}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.6 }}
+        transition={reduceMotion ? { duration: 0.15 } : { type: "spring", stiffness: 150, damping: 26 }}
+      >
         {page.year}
         <span className="mt-2 block text-[0.64rem] opacity-50">{page.chapter}</span>
-      </div>
+      </motion.div>
 
-      <div className="self-end pb-12 lg:pb-0">
+      <motion.div
+        className="self-end pb-16 lg:pb-0"
+        initial={false}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.5 }}
+        transition={reduceMotion ? { duration: 0.15 } : { type: "spring", stiffness: 120, damping: 24, delay: 0.04 }}
+      >
         <span className="font-mono text-[0.64rem] tracking-[0.12em] opacity-55">
           {String(index + 1).padStart(2, "0")} · {page.label}
         </span>
@@ -43,7 +55,7 @@ export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
           {page.title}
         </h3>
         <p className="mt-6 max-w-md text-sm leading-7 opacity-70">{page.description}</p>
-      </div>
+      </motion.div>
 
       <div className="pointer-events-none absolute right-6 top-5 font-mono text-6xl opacity-10 sm:right-10 sm:top-8">
         {String(index + 1).padStart(2, "0")}
@@ -52,7 +64,7 @@ export function StoryScene({ index, page, editing, onEdit }: StorySceneProps) {
       <motion.button
         type="button"
         onClick={() => onEdit(page)}
-        className={`absolute bottom-6 right-6 rounded-full border border-white/40 bg-white/20 px-4 py-2 text-xs backdrop-blur-xl sm:bottom-10 sm:right-10 ${editing ? "opacity-100" : "opacity-100 lg:opacity-0 lg:group-hover:opacity-100"}`}
+        className={`absolute bottom-[5svh] right-[5vw] rounded-full border border-white/40 bg-white/20 px-4 py-2 text-xs backdrop-blur-xl ${editing ? "opacity-100" : "opacity-100 lg:opacity-0 lg:group-hover:opacity-100"}`}
         whileTap={{ scale: 0.94 }}
         transition={{ type: "spring", stiffness: 480, damping: 34 }}
       >
