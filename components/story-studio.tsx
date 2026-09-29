@@ -16,8 +16,8 @@ export function StoryStudio() {
   const [ready, setReady] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [saved, setSaved] = useState(true);
-  useEffect(() => { const id = requestAnimationFrame(() => { const existing = loadStory(); setStory(existing); setSelected(existing?.pages[0]?.id ?? null); setReady(true); }); return () => cancelAnimationFrame(id); }, []);
-  useEffect(() => { if (!ready || !story) return; const result = saveStory(story); const id = requestAnimationFrame(() => setSaved(result)); return () => cancelAnimationFrame(id); }, [story, ready]);
+  useEffect(() => { const id = window.setTimeout(() => { const existing = loadStory(); setStory(existing); setSelected(existing?.pages[0]?.id ?? null); setReady(true); }, 0); return () => window.clearTimeout(id); }, []);
+  useEffect(() => { if (!ready || !story) return; const result = saveStory(story); const id = window.setTimeout(() => setSaved(result), 0); return () => window.clearTimeout(id); }, [story, ready]);
   const page = story?.pages.find((item) => item.id === selected);
   const update = (patch: Partial<StoryProfile>) => setStory((current) => current && { ...current, ...patch });
   const updatePage = (patch: Partial<StoryPage>) => setStory((current) => current && { ...current, pages: current.pages.map((item) => item.id === selected ? { ...item, ...patch } : item) });
