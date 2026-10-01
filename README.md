@@ -17,4 +17,4 @@ npm run dev
 
 글은 LocalStorage, 사진은 IndexedDB에 이 브라우저에 저장됩니다. 계정, 기기 간 동기화, 공개 공유 링크는 아직 제공하지 않습니다.
 
-현재 화면은 `public/storyframe/`에서 제공하며 기존 Next.js 서비스의 `/`, `/studio`, `/story` 주소에서 연결됩니다. 정적 원본은 별도의 로컬 작업 폴더에서 관리합니다.
+현재 화면의 기준 코드는 이 저장소의 `public/storyframe/`입니다. Next.js의 `/`, `/studio`, `/story` 주소에서 해당 화면으로 연결됩니다.
