@@ -1,2 +1,5 @@
-import { StoryReader } from "@/components/story-reader";
-export default function StoryPage() { return <StoryReader />; }
+import { redirect } from "next/navigation";
+
+export default function StoryPage() {
+  redirect("/storyframe/index.html?view=read");
+}

@@ -1,2 +1,5 @@
-import { StoryStudio } from "@/components/story-studio";
-export default function StudioPage() { return <StoryStudio />; }
+import { redirect } from "next/navigation";
+
+export default function StudioPage() {
+  redirect("/storyframe/index.html");
+}

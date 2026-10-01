@@ -1,27 +1,20 @@
-# Personal Storytelling
+# STORYFRAME
 
-삶의 순간을 한 화면씩 꾸미고 이어 붙이는 개인 스토리텔링 서비스 MVP입니다.
+사진과 글을 시간순으로 엮어 스크롤로 읽는 개인 이야기 웹사이트를 만드는 서비스 MVP입니다.
 
-## Stack
-
-- Next.js App Router
-- React + TypeScript/TSX
-- Tailwind CSS
-- Motion for React
-- LocalStorage 기반 MVP 저장
-
-## Run
+## 실행
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 화면
+- `/` 또는 `/studio` — 표지·장면·마지막 문장을 웹페이지 위에서 직접 편집
+- `/story` — 같은 구성을 읽기 전용으로 표시
+- `/storyframe/index.html` — 현재 편집 화면의 정적 원본
 
-- `/` — 서비스를 소개하고 제작을 시작하는 랜딩
-- `/studio` — 장면 추가·편집·순서 변경·삭제, 글과 배경 톤 커스터마이즈
-- `/story` — 만든 이야기를 전체 화면 스냅 프레임으로 감상
-- `/sample` — 기존 예시 이야기
+표지에는 사진·배경·글 정렬을 설정할 수 있습니다. 각 장면에는 사진·글 비율을 고를 수 있고, 사진을 넣기 전 자르기 방식과 위치를 확인합니다. 장면은 최대 30개까지 추가할 수 있습니다.
 
-현재 데이터는 이 브라우저의 LocalStorage에만 보관됩니다. 다른 기기와 동기화되지 않으며, 브라우저 데이터를 지우면 사라질 수 있습니다. 계정, 이미지 업로드, 공개 공유 URL은 아직 구현하지 않았습니다.
+글은 LocalStorage, 사진은 IndexedDB에 이 브라우저에 저장됩니다. 계정, 기기 간 동기화, 공개 공유 링크는 아직 제공하지 않습니다.
+
+현재 화면은 `public/storyframe/`에서 제공하며 기존 Next.js 서비스의 `/`, `/studio`, `/story` 주소에서 연결됩니다. 정적 원본은 별도의 로컬 작업 폴더에서 관리합니다.
