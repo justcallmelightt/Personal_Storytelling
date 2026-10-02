@@ -6,8 +6,6 @@
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css&logoColor=white)
-![LocalStorage](https://img.shields.io/badge/LocalStorage-555555?style=for-the-badge)
-![IndexedDB](https://img.shields.io/badge/IndexedDB-555555?style=for-the-badge)
 
 사진과 글을 시간순으로 엮어 스크롤로 읽는 개인 이야기 웹사이트를 만드는 서비스 MVP입니다.
 
