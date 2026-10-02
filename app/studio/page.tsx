@@ -1,6 +1,5 @@
-import { StoryframeApp } from "@/components/storyframe-app";
-import "../../public/storyframe/studio.css";
+import { redirect } from "next/navigation";
 
 export default function StudioPage() {
-  return <StoryframeApp />;
+  redirect("/");
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../public/storyframe/studio.css";
 
 export const metadata: Metadata = {
   title: "STORYFRAME — 나의 이야기 웹사이트 만들기",
