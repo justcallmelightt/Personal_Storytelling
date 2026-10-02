@@ -1,8 +1,20 @@
 # Storyframe
 
+## Tech Stack
+
+**현재 편집·독자 화면** (`/`, `/studio`, `/story`)
+
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css&logoColor=white)
+![LocalStorage](https://img.shields.io/badge/LocalStorage-555555?style=for-the-badge)
+![IndexedDB](https://img.shields.io/badge/IndexedDB-555555?style=for-the-badge)
+
+**별도 샘플 화면** (`/sample`)
+
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Motion](https://img.shields.io/badge/Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
 사진과 글을 시간순으로 엮어 스크롤로 읽는 개인 이야기 웹사이트를 만드는 서비스 MVP입니다.
 
@@ -21,6 +33,4 @@ npm run dev
 
 글은 LocalStorage, 사진은 IndexedDB에 이 브라우저에 저장됩니다. 계정, 기기 간 동기화, 공개 공유 링크는 아직 제공하지 않습니다.
 
-현재 편집·독자 화면은 `components/storyframe-app.tsx`와 `lib/storyframe-storage.ts`가 담당합니다. 스타일은 기존 `public/storyframe/studio.css`를 재사용합니다. 기존 브라우저 저장 키와 IndexedDB 사진 데이터는 그대로 읽으며, 로그인과 공개 공유는 아직 제공하지 않습니다.
-
-`/sample`의 별도 실험 화면에는 Tailwind CSS와 Motion이 사용됩니다. 현재 편집·독자 화면의 스타일과 드래그 모션은 CSS 및 React 이벤트로 구현되어 있습니다.
+현재 편집·독자 화면은 `components/storyframe-app.tsx`와 `lib/storyframe-storage.ts`가 담당합니다. 스타일은 `public/storyframe/studio.css`와 Pretendard 폰트를 사용하고, 드래그는 React 포인터 이벤트로 처리합니다. `/sample`의 별도 실험 화면에서 Tailwind CSS와 Motion을 사용합니다.
