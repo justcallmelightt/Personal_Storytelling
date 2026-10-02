@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Personal Storytelling — 내 이야기를, 한 장면씩",
+  title: "STORYFRAME — 나의 이야기 웹사이트 만들기",
   description: "살아온 순간을 한 화면씩 펼치고, 연대기마다 글과 분위기를 꾸미는 개인 스토리텔링 웹",
 };
 

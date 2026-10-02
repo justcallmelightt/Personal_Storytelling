@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import { StoryframeApp } from "@/components/storyframe-app";
+import "../../public/storyframe/studio.css";
 
 export default function StoryPage() {
-  redirect("/storyframe/index.html?view=read");
+  return <StoryframeApp readOnly />;
 }

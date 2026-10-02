@@ -3,54 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f5f3ee" />
-  <meta name="description" content="사진과 글로 내 삶의 순간을 엮어 스크롤로 읽는 개인 이야기 웹사이트를 만드세요." />
-  <title>STORYFRAME — 나의 이야기 웹사이트 만들기</title>
-  <link rel="preload" href="./assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="./studio.css?v=custom-2" />
-  <script src="./studio.js?v=custom-2" defer></script>
+  <meta name="robots" content="noindex" />
+  <title>STORYFRAME으로 이동</title>
+  <script>
+    const path = new URLSearchParams(location.search).get('view') === 'read' ? '/story' : '/';
+    location.replace(path + location.hash);
+  </script>
 </head>
-<body>
-  <a class="skip-link" href="#storyWebsite">이야기 편집으로 건너뛰기</a>
-  <header class="app-header">
-    <div class="header-inner">
-      <a class="brand" href="./index.html" aria-label="STORYFRAME 첫 화면"><span class="brand-mark">S</span><span>STORYFRAME</span></a>
-      <span class="header-purpose">나의 이야기 웹사이트 만들기</span>
-      <div class="header-actions"><span id="saveStatus" role="status">이 브라우저에 저장됨</span><a class="read-link" id="modeLink" href="./index.html?view=read" target="_blank" rel="noopener">독자 화면에서 읽기 <span aria-hidden="true">↗</span></a></div>
-    </div>
-  </header>
-  <main>
-    <div class="site-intro">
-      <div><span class="site-intro-label">STORYFRAME / WEB STORY BUILDER</span><h1>당신의 순간을 <em>하나의 웹 이야기</em>로.</h1><p>표지와 시간순 장면을 채우면, 아래로 스크롤하며 읽는 개인 웹사이트가 됩니다. 지금 보이는 페이지에서 바로 수정하세요.</p></div>
-      <div class="site-intro-flow" aria-label="만드는 순서"><span><b>01</b> 표지 작성</span><span><b>02</b> 장면과 사진 추가</span><span><b>03</b> 완성 화면 읽기</span></div>
-    </div>
-    <div class="site-frame" id="storyWebsite">
-      <div class="site-frame-bar"><span class="site-frame-domain">나의 이야기 · 웹페이지 편집 중</span><span class="site-frame-scroll">아래로 스크롤하며 작성 ↓</span></div>
-      <section class="story-cover" aria-label="이야기 표지">
-        <div class="cover-photo" id="coverPhoto" hidden><img id="coverImage" alt="표지에 넣은 사진" /></div>
-        <div class="cover-content">
-          <span class="section-eyebrow">INTRO / 나의 이야기</span>
-          <input id="profileName" maxlength="24" aria-label="표지에 표시할 이름" placeholder="이름 또는 별명" />
-          <textarea id="profileTitle" rows="2" maxlength="80" aria-label="이야기 제목" placeholder="이야기의 제목을 적어주세요"></textarea>
-          <textarea id="profileDescription" rows="2" maxlength="200" aria-label="이야기 소개" placeholder="이 이야기를 소개하는 한두 문장"></textarea>
-        </div>
-        <div class="cover-tools"><label class="cover-upload">＋ 표지 사진 선택<input id="coverFile" type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden /></label><details class="cover-options"><summary>표지 꾸미기</summary><div class="cover-options-panel"><label>표지 배경<select id="coverTheme"><option value="">아이보리</option><option value="dark">차콜</option><option value="warm">샌드</option><option value="lilac">라일락</option><option value="plum">플럼</option></select></label><label>사진 배치<select id="coverLayout"><option value="split">글 옆에 사진</option><option value="background">사진을 배경으로</option></select></label><label>글 정렬<select id="coverAlign"><option value="left">왼쪽</option><option value="center">가운데</option></select></label><button id="removeCoverPhoto" type="button" hidden>표지 사진 제거</button></div></details></div>
-        <span class="cover-bottom">01 / START</span>
-      </section>
-      <section class="story-chapters" aria-labelledby="chaptersTitle">
-        <div class="chapter-heading"><span>CHAPTERS / 시간순으로 읽는 이야기</span><h2 id="chaptersTitle">기억하고 싶은 순간들</h2><p>연도, 제목, 글, 사진을 넣어 장면을 이어 주세요. 각 장면은 완성 화면에서 한 구간이 됩니다.</p></div>
-        <div id="sceneList" class="scene-list"></div>
-        <button id="addScene" class="add-scene" type="button">＋ 새 페이지 추가 <span>이야기의 다음 장면</span></button>
-      </section>
-      <section class="story-ending" aria-label="이야기 마지막 문장">
-        <span class="section-eyebrow">ENDING / 마지막 문장</span>
-        <textarea id="endingTitle" rows="2" maxlength="80" aria-label="마지막 장면 제목" placeholder="마지막에 남길 제목"></textarea>
-        <textarea id="endingDescription" rows="2" maxlength="200" aria-label="마지막 장면 문장" placeholder="독자에게 남길 한 문장"></textarea>
-        <span class="ending-mark">STORYFRAME</span>
-      </section>
-    </div>
-    <footer class="editor-footer"><span>글과 사진은 이 브라우저에 자동 저장됩니다. 다른 기기와 동기화되거나 공개되지는 않습니다.</span><a href="./index.html?view=read" target="_blank" rel="noopener">독자 화면에서 읽기 ↗</a></footer>
-  </main>
-  <dialog id="photoDialog" class="photo-dialog" aria-labelledby="photoDialogTitle"><form method="dialog" id="photoForm"><div class="dialog-heading"><div><span>사진 넣기 전 조절</span><h2 id="photoDialogTitle">사진을 어떻게 보여줄까요?</h2></div><button id="cancelPhoto" type="button" aria-label="닫기">×</button></div><div class="photo-preview-stage"><img id="pendingPhoto" alt="선택한 사진 미리보기" /></div><div class="photo-dialog-controls"><fieldset><legend>표시 방식</legend><label><input type="radio" name="photoFitChoice" value="cover" checked /> 채워서 자르기</label><label><input type="radio" name="photoFitChoice" value="contain" /> 전체 보이기</label></fieldset><label>가로 위치<input id="pendingPhotoX" type="range" min="0" max="100" value="50" /></label><label>세로 위치<input id="pendingPhotoY" type="range" min="0" max="100" value="50" /></label></div><div class="dialog-actions"><button type="button" id="photoCancel">취소</button><button type="submit" id="photoApply">이대로 사진 넣기</button></div></form></dialog>
-</body>
+<body><p><a href="/">STORYFRAME 열기</a></p></body>
 </html>

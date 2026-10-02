@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+body:has(.storyframe-app)::before { display: none; }
+
 :root {
   --paper: #f7f4ef;
   --ink: #17151d;
